@@ -40,9 +40,8 @@ export class DetailComponent implements OnInit {
     this.userService.getUser(id).subscribe({
       next: ((data: BigUser) => {
         this.user = data;
-        console.log(this.user);
       }), error: ((error: any) => {
-        console.error(error);
+        this.router.navigate(['/']);
       })
     });
   }

@@ -37,7 +37,8 @@ export class UpdateComponent implements OnInit {
   
     constructor(
       private userService: UserService,
-      private activatedRoute: ActivatedRoute
+      private activatedRoute: ActivatedRoute,
+      private router: Router
     ) { }
   
     ngOnInit(): void {
@@ -45,9 +46,8 @@ export class UpdateComponent implements OnInit {
       this.userService.getUser(id).subscribe({
         next: ((data: BigUser) => {
           this.user = data;
-          console.log(this.user);
         }), error: ((error: any) => {
-          console.error(error);
+          this.router.navigate(['/']);
           
         })
       });
@@ -67,11 +67,9 @@ export class UpdateComponent implements OnInit {
       this.reset();
       this.userService.updateUser(this.user.id, dto).subscribe({
         next: ((data: any) => {
-          console.log(data);
           this.updated = true;
           this.messageUpdated = data.message;
         }), error: ((error: any) => {
-          console.error(error);
           this.failUpdated = true;
           this.errorUpdated= error.error.message;
         })

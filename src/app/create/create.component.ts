@@ -59,7 +59,6 @@ export class CreateComponent implements OnInit {
     };
     this.userService.createUser(this.userDto).subscribe({
       next: ((data: any) => {
-        console.log(data);
         this.created = true;
         this.messageCreated = data.message;
       }), error: ((error: any) => {

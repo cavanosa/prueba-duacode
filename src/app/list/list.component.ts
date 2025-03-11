@@ -33,6 +33,8 @@ export class ListComponent implements OnInit {
   // tipo de vista (lista o tarjetas)
   isCardView = false
 
+  loadError = false;
+
   constructor(
     private userService: UserService
   ) { }
@@ -45,14 +47,14 @@ export class ListComponent implements OnInit {
   loadUsers(): void {
     this.userService.getUsers(this.page, this.size, this.order, this.asc).subscribe({
       next: ((data: any) => {
-        console.log(data);
         this.total = data.totalElements;
         this.isFirst = data.first;
         this.isLast = data.last;
         this.total_pages = new Array(data['totalPages']);
         this.users = data.content;
+        this.loadError = false;
       }), error: ((error: any) => {
-        console.error(error);
+        this.loadError = true;
       })
     });
   }
