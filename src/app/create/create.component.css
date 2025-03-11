@@ -1,0 +1,18 @@
+@media (max-width: 991px) {
+    /* Apila las tabs verticalmente en pantallas pequeñas */
+    .nav-tabs {
+        display: flex;
+        flex-direction: column; 
+        width: 100%;
+    }
+    /* Espacio entre las tabs */
+    .nav-tabs .nav-item {
+        margin-bottom: 5px; 
+    }
+
+    /* Para evitar que se vea solo el tab activo */
+    .nav-tabs .nav-link {
+        display: block;
+        text-align: left;
+    }
+}

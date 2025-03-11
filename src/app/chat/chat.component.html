@@ -1,0 +1,66 @@
+<div class="container text-center mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <!-- Barra de navegación -->
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <!-- Botón  para pantallas pequeñas -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- nav-tabs -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="nav nav-tabs w-100">
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/">Lista de usuarios</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/create">Nuevo Usuario</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" raria-current="page">Chatear</a>
+                </li>
+              </ul>
+            </div>
+            <!-- fin nav tabs -->
+          </nav>
+          <!-- Fin barra de navegación -->
+        </div>
+        <!-- Formulario -->
+        <div class="card-body">
+          <form (ngSubmit)="send()" novalidate #f="ngForm">
+            <!-- Campo Nombre -->
+            <div class="mb-3">
+              <label for="memoryId" class="form-label"><b>¿Quién eres?</b></label>&nbsp;
+              <i class="fa-solid fa-circle-info" style="color: #0d6efd;" data-bs-toggle="tooltip"
+                data-bs-placement="top" title="Pon tu nombre para que me acuerde de nuestra conversación"></i>
+              <input type="text" class="form-control" id="memoryId" required [(ngModel)]="memoryId" name="memoryId"
+                autocomplete="off">
+            </div>
+            <!-- Campo pregunta -->
+            <div class="mb-3">
+              <label for="request" class="form-label"><b>¿En qué puedo ayudarte?</b></label>&nbsp;
+              <i class="fa-solid fa-circle-info" style="color: #0d6efd;" data-bs-toggle="tooltip"
+                data-bs-placement="top" title="Pídeme la lista, ver, crear, actualizar o eliminar usuarios"></i>
+              <textarea class="form-control" id="request" rows="3" required [(ngModel)]="request"
+                name="request"></textarea>
+            </div>
+            <!-- Campo respuesta -->
+            <div class="mb-3">
+              <textarea class="form-control" id="response" rows="9" readonly name="response"
+                [(ngModel)]="response"></textarea>
+            </div>
+            <!-- Botón -->
+            <button class="btn btn-outline-success" [disabled]="!f.valid">
+              <i class="fa-brands fa-rocketchat"></i>
+              Enviar</button>
+          </form>
+        </div>
+        <!-- Fin formulario-->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+/* Estilo general para los nav tabs */
+.nav-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0; 
+    margin-bottom: 0; 
+    list-style: none;
+}
+
+/* Asegura que las pestañas no se estiren o reduzcan */
+.nav-tabs .nav-item {
+    flex: 0 1 auto; 
+}
+
+/* Evitar saltos de línea dentro de las pestañas */
+.nav-tabs .nav-link {
+    white-space: nowrap; 
+    text-overflow: ellipsis; /* Mostrar '...' si el texto se corta */
+    overflow: hidden; /* Ocultar texto que se desborda */
+    padding: 0.5rem 1rem; /* Ajustar el padding de las pestañas */
+    margin: 0; /* Eliminar márgenes que puedan causar desalineación */
+}
+
+/* En pantallas pequeñas */
+@media (max-width: 991px) {
+    .nav-tabs {
+        display: flex;
+        flex-direction: column; /* Apilar las pestañas verticalmente */
+    }
+
+    /* Hacer que las pestañas ocupen todo el ancho */
+    .nav-tabs .nav-item {
+        width: 100%; 
+    }
+
+    /* Evitar que el texto se rompa */
+    .nav-tabs .nav-link {
+        white-space: nowrap; 
+        text-overflow: ellipsis; /* Agregar "..." si el texto se corta */
+        overflow: hidden; /* Ocultar texto desbordado */
+    }
+}

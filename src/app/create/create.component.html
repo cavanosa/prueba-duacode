@@ -1,0 +1,109 @@
+<div class="container mt-3">
+    <div class="card text-center">
+        <div class="card-header">
+            <!-- Barra de navegación -->
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <!-- Botón para pantallas pequeñas -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Contenedor para nav-tabs -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav nav-tabs w-100">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/">Lista de usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" ria-current="page">Nuevo Usuario</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/chat">Chatear</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- fin nav tabs-->
+            </nav>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Nuevo usuario</h5>
+        </div>
+        <!-- mensajes éxito y error-->
+        <div *ngIf="created">
+            <div class="text-bg-success p-3">{{messageCreated}}</div>
+        </div>
+        <div *ngIf="failCreated">
+            <div class="text-bg-danger p-3">{{errorCreated}}</div>
+        </div>
+        <!-- fin mensajes -->
+        <div class="card-body mx-auto">
+            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                <div class="row g-3 mx-auto">
+                    <!-- Campo de Email -->
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Introduce tu email" required
+                            name="email" [(ngModel)]="email">
+                        <div class="text-danger" id="emailError" *ngIf="emailError">{{emailError}}</div>
+                    </div>
+
+                    <!-- Campo de Primer Nombre -->
+                    <div class="col-md-6">
+                        <label for="firstName" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="firstName"
+                            placeholder="tu nombre" required>
+                        <div class="text-danger" id="firstNameError" *ngIf="firstNameError">{{firstNameError}}</div>
+                    </div>
+
+                    <!-- Campo de Apellido -->
+                    <div class="col-md-6">
+                        <label for="lastName" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="lastName"
+                            placeholder="tu apellido" required>
+                        <div class="text-danger" id="lastNameError" *ngIf="lastNameError">{{lastNameError}}</div>
+                    </div>
+
+                    <!-- Campo de Avatar -->
+                    <div class="col-md-6">
+                        <label for="avatar" class="form-label">Avatar</label>
+                        &nbsp;
+                        <i class="fa-solid fa-circle-info" style="color: #0d6efd;" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Puedes cambiar el número del final de la URL por un valor de entre 1 y 1000"></i>
+                        <input type="url" class="form-control" id="avatar" name="avatar" [(ngModel)]="avatar" required>
+                        <div class="text-danger" id="avatarError" *ngIf="avatarError">{{avatarError}}</div>
+                    </div>
+
+                    <!-- Campo de URL -->
+                    <div class="col-md-6">
+                        <label for="url" class="form-label">URL Personal</label>
+                        <input type="url" class="form-control" id="url" placeholder="URL personal" name="url"
+                            [(ngModel)]="url" required>
+                        <div class="text-danger" id="urlError" *ngIf="urlError">{{urlError}}
+                        </div>
+                    </div>
+
+                    <!-- Campo de Texto -->
+                    <div class="col-md-6">
+                        <label for="text" class="form-label">Tu Frase</label>
+                        <input type="text" class="form-control" id="text" rows="3" placeholder="bla bla..." name="text"
+                            [(ngModel)]="text" required>
+                        <div class="text-danger" id="textError" *ngIf="textError">{{textError}}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="d-flex justify-content-around mt-3">
+                    <button type="submit" class="btn btn-outline-success" [disabled]="!f.valid">
+                        <i class="fa-solid fa-user-plus"></i>&nbsp;Crear</button>
+                    <button type="button" class="btn btn-outline-primary" (click)="reset()">
+                        <i class="fa-solid fa-rotate"></i>&nbsp;Reset</button>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>

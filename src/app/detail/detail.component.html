@@ -1,0 +1,56 @@
+<div class="container mt-3 d-flex justify-content-center" *ngIf="user">
+  <div class="card text-center" style="max-width: 500px; width: 100%;">
+    <div class="card-header">
+      <!-- Barra de navegación -->
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <!-- Botón para pantallas pequeñas -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Contenedor para los enlaces de navegación (manteniendo nav-tabs) -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/">Lista de usuarios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page">{{user.first_name}}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/create">Nuevo Usuario</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/chat">Chatear</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- fin barra de navegación -->
+    </div>
+    <!-- imagen del usuario-->
+    <img src={{user.avatar}} class="card-img-top p-5" alt="...">
+    <!-- nombre y frase -->
+    <div class="card-body">
+      <h5 class="card-title">{{user.first_name}}</h5>
+      <p class="card-text">{{user.support.text}}</p>
+    </div>
+    <!-- email, nombre y apellido -->
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{user.email}}</li>
+      <li class="list-group-item">{{user.first_name}} {{user.last_name}}</li>
+      <li class="list-group-item">{{user.support.url}}</li>
+    </ul>
+    <!-- botones de editar y eliminar -->
+    <div class="card-body d-flex justify-content-around">
+      <button class="btn btn-outline-warning" [routerLink]="'/update/' + user.id">
+        <i class="fa-solid fa-pen-to-square"></i>&nbsp;
+        Editar</button>
+      <button class="btn btn-outline-danger" (click)="onDelete()">
+        <i class="fa-solid fa-trash-can"></i>&nbsp;
+        Eliminar</button>
+    </div>
+    <!-- fin botones -->
+  </div>
+</div>
