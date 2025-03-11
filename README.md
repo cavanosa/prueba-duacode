@@ -67,7 +67,7 @@ Para conectar el frontend con el backend hay que realizar los siguientes cambios
 
 ## 2. Descripción del Proyecto
 
-Este proyecto implementa un CRUD básico así como un chatbot que también permite realizar las operaciones CRUD.  
+Este proyecto implementa un CRUD básico así como un CHATBOT que también permite realizar las operaciones CRUD.  
 Aparte del frontend, implementé y desplegué en la nube un pequeño backend con una base de datos que permite obtener los resultados ordenados y paginados. El chatbot lo implementé con la API de OpenAI y langchain4j. En la base de datos se guardaron los registros proporcionados como ejemplo en las instrucciones de la prueba, en la URL [https://reqres.in](https://reqres.in).
 
 ### Tecnologías empleadas en el backend:
