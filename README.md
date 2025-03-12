@@ -33,6 +33,8 @@
 
   ```bash
   ng serve -o
+
+- Se abrirá automáticamente el navegador
   
 ## AVISO IMPORTANTE:
 
